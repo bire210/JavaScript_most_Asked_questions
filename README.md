@@ -250,41 +250,6 @@ However, when we use the `===` operator (Strict equality operator), both value _
 ###### 8. What's the output?
 
 ```javascript
-class Chameleon {
-  static colorChange(newColor) {
-    this.newColor = newColor;
-    return this.newColor;
-  }
-
-  constructor({ newColor = 'green' } = {}) {
-    this.newColor = newColor;
-  }
-}
-
-const freddie = new Chameleon({ newColor: 'purple' });
-console.log(freddie.colorChange('orange'));
-```
-
-- A: `orange`
-- B: `purple`
-- C: `green`
-- D: `TypeError`
-
-<details><summary><b>Answer</b></summary>
-<p>
-
-#### Answer: D
-
-The `colorChange` function is static. Static methods are designed to live only on the constructor in which they are created, and cannot be passed down to any children or called upon class instances. Since `freddie` is an instance of class Chameleon, the function cannot be called upon it. A `TypeError` is thrown.
-
-</p>
-</details>
-
----
-
-###### 9. What's the output?
-
-```javascript
 let greeting;
 greetign = {}; // Typo!
 console.log(greetign);
@@ -313,7 +278,7 @@ In order to avoid this, we can use `"use strict"`. This makes sure that you have
 
 ---
 
-###### 10. What happens when we do this?
+###### 9. What happens when we do this?
 
 ```javascript
 function bark() {
@@ -342,7 +307,7 @@ A function is a special type of object. The code you write yourself isn't the ac
 
 ---
 
-###### 11. What's the output?
+###### 10. What's the output?
 
 ```javascript
 function Person(firstName, lastName) {
@@ -383,7 +348,7 @@ Person.prototype.getFullName = function() {
 
 ---
 
-###### 12. What's the output?
+###### 11. What's the output?
 
 ```javascript
 function Person(firstName, lastName) {
@@ -417,7 +382,7 @@ We said that `this.firstName` equals `"Prity"` and `this.lastName` equals `"Kuma
 
 ---
 
-###### 13. What are the three phases of event propagation?
+###### 12. What are the three phases of event propagation?
 
 - A: Target > Capturing > Bubbling
 - B: Bubbling > Target > Capturing
@@ -438,7 +403,7 @@ During the **capturing** phase, the event goes through the ancestor elements dow
 
 ---
 
-###### 14. All object have prototypes.
+###### 13. All objects have prototypes.
 
 - A: true
 - B: false
@@ -448,14 +413,14 @@ During the **capturing** phase, the event goes through the ancestor elements dow
 
 #### Answer: B
 
-All objects have prototypes, except for the **base object**. The base object is the object created by the user, or an object that is created using the `new` keyword. The base object has access to some methods and properties, such as `.toString`. This is the reason why you can use built-in JavaScript methods! All of such methods are available on the prototype. Although JavaScript can't find it directly on your object, it goes down the prototype chain and finds it there, which makes it accessible for you.
+All objects have prototypes, except for the **base object**. The base object is an object created by a user , or an object that is created using the `new` keyword. The base object has access to some methods and properties, such as `.toString`. This is the reason why you can use built-in JavaScript methods! All of such methods are available on the prototype. Although JavaScript can't find it directly on your object, it goes down the prototype chain and finds it there, which makes it accessible for you.
 
 </p>
 </details>
 
 ---
 
-###### 15. What's the output?
+###### 14. What's the output?
 
 ```javascript
 function sum(a, b) {
@@ -475,7 +440,7 @@ sum(1, '2');
 
 #### Answer: C
 
-JavaScript is a **dynamically typed language**: we don't specify what types certain variables are. Values can automatically be converted into another type without you knowing, which is called _implicit type coercion_. **Coercion** is converting from one type into another.
+JavaScript is a **dynamically typed language**: we don't specify what types certain variables are. Values can automatically be converted into another types without you knowing, which is called _implicit type coercion_. **Coercion** is converting from one type into another.
 
 In this example, JavaScript converts the number `1` into a string, in order for the function to make sense and return a value. During the addition of a numeric type (`1`) and a string type (`'2'`), the number is treated as a string. We can concatenate strings like `"Hello" + "World"`, so what's happening here is `"1" + "2"` which returns `"12"`.
 
@@ -484,7 +449,7 @@ In this example, JavaScript converts the number `1` into a string, in order for 
 
 ---
 
-###### 16. What's the output?
+###### 15. What's the output?
 
 ```javascript
 let number = 0;
@@ -520,7 +485,7 @@ This returns `0 2 2`.
 
 ---
 
-###### 17. What's the output?
+###### 16. What's the output?
 
 ```javascript
 function getPersonInfo(one, two, three) {
@@ -551,7 +516,7 @@ If you use tagged template literals, the value of the first argument is always a
 
 ---
 
-###### 18. What's the output?
+###### 17. What's the output?
 
 ```javascript
 function checkAge(data) {
@@ -587,7 +552,7 @@ This is why both `{ age: 18 } === { age: 18 }` and `{ age: 18 } == { age: 18 }` 
 
 ---
 
-###### 19. What's the output?
+###### 18. What's the output?
 
 ```javascript
 function getAge(...args) {
@@ -614,7 +579,7 @@ The rest parameter (`...args`) lets us "collect" all remaining arguments into an
 
 ---
 
-###### 20. What's the output?
+###### 19. What's the output?
 
 ```javascript
 function getAge() {
@@ -643,7 +608,7 @@ With `"use strict"`, you can make sure that you don't accidentally declare globa
 
 ---
 
-###### 24. What's the value of `sum`?
+###### 20. What's the value of `sum`?
 
 ```javascript
 const sum = eval('10*10+5');
@@ -666,32 +631,9 @@ const sum = eval('10*10+5');
 
 ---
 
-###### 22. How long is cool_secret accessible?
 
-```javascript
-sessionStorage.setItem('cool_secret', 123);
-```
 
-- A: Forever, the data doesn't get lost.
-- B: When the user closes the tab.
-- C: When the user closes the entire browser, not only the tab.
-- D: When the user shuts off their computer.
-
-<details><summary><b>Answer</b></summary>
-<p>
-
-#### Answer: B
-
-The data stored in `sessionStorage` is removed after closing the _tab_.
-
-If you used `localStorage`, the data would've been there forever, unless for example `localStorage.clear()` is invoked.
-
-</p>
-</details>
-
----
-
-###### 23. What's the output?
+###### 21. What's the output?
 
 ```javascript
 var num = 8;
@@ -719,7 +661,7 @@ You cannot do this with `let` or `const` since they're block-scoped.
 
 ---
 
-###### 24. What's the output?
+###### 22. What's the output?
 
 ```javascript
 const obj = { 1: 'a', 2: 'b', 3: 'c' };
@@ -750,7 +692,7 @@ It doesn't work that way for a set. There is no `'1'` in our set: `set.has('1')`
 
 ---
 
-###### 25. What's the output?
+###### 23. What's the output?
 
 ```javascript
 const obj = { a: 'one', b: 'two', a: 'three' };
@@ -774,25 +716,11 @@ If you have two keys with the same name, the key will be replaced. It will still
 
 ---
 
-###### 26. The JavaScript global execution context creates two things for you: the global object, and the "this" keyword.
 
-- A: true
-- B: false
-- C: it depends
-
-<details><summary><b>Answer</b></summary>
-<p>
-
-#### Answer: A
-
-The base execution context is the global execution context: it's what's accessible everywhere in your code.
-
-</p>
-</details>
 
 ---
 
-###### 27. What's the output?
+###### 24. What's the output?
 
 ```javascript
 for (let i = 1; i < 5; i++) {
@@ -818,7 +746,7 @@ The `continue` statement skips an iteration if a certain condition returns `true
 
 ---
 
-###### 28. What's the output?
+###### 25. What's the output?
 
 ```javascript
 String.prototype.giveBirendraPizza = () => {
@@ -847,7 +775,7 @@ console.log(name.giveBirendraPizza())
 
 ---
 
-###### 29. What's the output?
+###### 26. What's the output?
 
 ```javascript
 const a = {};
@@ -881,7 +809,7 @@ Then, we log `a[b]`, which is actually `a["[object Object]"]`. We just set that 
 
 ---
 
-###### 30. What's the output?
+###### 27. What's the output?
 
 ```javascript
 const foo = () => console.log('First');
@@ -934,7 +862,7 @@ This is where an event loop starts to work. An **event loop** looks at the stack
 
 ---
 
-###### 31. What is the event.target when clicking the button?
+###### 28. What is the event.target when clicking the button?
 
 ```html
 <div onclick="console.log('first div')">
@@ -963,7 +891,7 @@ The deepest nested element that caused the event is the target of the event. You
 
 ---
 
-###### 32. When you click the paragraph, what's the logged output?
+###### 29. When you click the paragraph, what's the logged output?
 
 ```html
 <div onclick="console.log('div')">
@@ -990,7 +918,7 @@ If we click `p`, we see two logs: `p` and `div`. During event propagation, there
 
 ---
 
-###### 33. What's the output?
+###### 30. What's the output?
 
 ```javascript
 const person = { name: 'Birendra' };
