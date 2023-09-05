@@ -950,7 +950,7 @@ With both, we can pass the object to which we want the `this` keyword to refer t
 
 ---
 
-###### 34. What's the output?
+###### 31. What's the output?
 
 ```javascript
 function sayHi() {
@@ -979,7 +979,7 @@ FYI: `typeof` can return the following list of values: `undefined`, `boolean`, `
 
 ---
 
-###### 35. Which of these values are falsy?
+###### 32. Which of these values are falsy?
 
 ```javascript
 0;
@@ -1018,7 +1018,7 @@ Function constructors, like `new Number` and `new Boolean` are truthy.
 
 ---
 
-###### 36. What's the output?
+###### 33. What's the output?
 
 ```javascript
 console.log(typeof typeof 1);
@@ -1042,7 +1042,7 @@ console.log(typeof typeof 1);
 
 ---
 
-###### 37. What's the output?
+###### 34. What's the output?
 
 ```javascript
 const numbers = [1, 2, 3];
@@ -1071,7 +1071,7 @@ depending on where you run it (it's different for every browser, node, etc.)
 
 ---
 
-###### 38. What's the output?
+###### 35. What's the output?
 
 ```javascript
 (() => {
@@ -1108,11 +1108,11 @@ Outside of the `catch` block, `x` is still `undefined`, and `y` is `2`. When we 
 
 ---
 
-###### 39. Everything in JavaScript is either a...
+###### 36. Everything in JavaScript is either a...
 
 - A: primitive or object
 - B: function or object
-- C: trick question! only objects
+- C: Trick question! only objects
 - D: number or object
 
 <details><summary><b>Answer</b></summary>
@@ -1131,7 +1131,7 @@ What differentiates a primitive from an object is that primitives do not have an
 
 ---
 
-###### 40. What's the output?
+###### 37. What's the output?
 
 ```javascript
 [[0, 1], [2, 3]].reduce(
@@ -1161,7 +1161,7 @@ Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and ge
 
 ---
 
-###### 41. What's the output?
+###### 38. What's the output?
 
 ```javascript
 !!null;
@@ -1190,7 +1190,7 @@ Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and ge
 
 ---
 
-###### 42. What does the `setInterval` method return in the browser?
+###### 39. What does the `setInterval` method return in the browser?
 
 ```javascript
 setInterval(() => console.log('Hi'), 1000);
@@ -1213,7 +1213,7 @@ It returns a unique id. This id can be used to clear that interval with the `cle
 
 ---
 
-###### 43. What does this return?
+###### 40. What does this return?
 
 ```javascript
 [...'Birendra'];
@@ -1236,42 +1236,8 @@ A string is an iterable. The spread operator maps every character of an iterable
 
 ---
 
-###### 44. What's the output?
 
-```javascript
-function* generator(i) {
-  yield i;
-  yield i * 2;
-}
-
-const gen = generator(10);
-
-console.log(gen.next().value);
-console.log(gen.next().value);
-```
-
-- A: `[0, 10], [10, 20]`
-- B: `20, 20`
-- C: `10, 20`
-- D: `0, 10 and 10, 20`
-
-<details><summary><b>Answer</b></summary>
-<p>
-
-#### Answer: C
-
-Regular functions cannot be stopped mid-way after invocation. However, a generator function can be "stopped" midway, and later continue from where it stopped. Every time a generator function encounters a `yield` keyword, the function yields the value specified after it. Note that the generator function in that case doesn’t _return_ the value, it _yields_ the value.
-
-First, we initialize the generator function with `i` equal to `10`. We invoke the generator function using the `next()` method. The first time we invoke the generator function, `i` is equal to `10`. It encounters the first `yield` keyword: it yields the value of `i`. The generator is now "paused", and `10` gets logged.
-
-Then, we invoke the function again with the `next()` method. It starts to continue where it stopped previously, still with `i` equal to `10`. Now, it encounters the next `yield` keyword, and yields `i * 2`. `i` is equal to `10`, so it returns `10 * 2`, which is `20`. This results in `10, 20`.
-
-</p>
-</details>
-
----
-
-###### 45. What does this return?
+###### 41. What does this return?
 
 ```javascript
 const firstPromise = new Promise((res, rej) => {
