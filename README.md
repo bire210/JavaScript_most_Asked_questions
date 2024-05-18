@@ -1219,10 +1219,10 @@ It returns a unique id. This id can be used to clear that interval with the `cle
 [...'Birendra'];
 ```
 
-- A: `["L", "y", "d", "i", "a"]`
+- A: `["B", "i", "r", "e", "n","d","r", "a"]`
 - B: `["Birendra"]`
 - C: `[[], "Birendra"]`
-- D: `[["L", "y", "d", "i", "a"]]`
+- D: `[["B", "i", "r", "e", "n","d","r", "a"]]`
 
 <details><summary><b>Answer</b></summary>
 <p>
