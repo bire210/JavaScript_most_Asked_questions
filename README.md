@@ -16,7 +16,55 @@ From basic to advanced: test how well you know JavaScript, refresh your knowledg
 
 ---
 
+---
 
+###### 1. What's the output?
+
+```
+console.log("Start ....");
+setTimeout(()=>{
+    console.log("Timeout 1 ....")
+},0);
+
+Promise.resolve().then(()=>{
+    console.log("Promise 1");
+    return Promise.resolve();
+}).then(()=>{
+    console.log("Promise 2");
+})
+
+setTimeout(()=>{
+    console.log("Timeout  2 ....");
+    Promise.resolve().then(()=>{
+        console.log("Promise inside Timeout 2");
+    });
+},0);
+
+console.log("End.")
+```
+
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+#### Answer: 
+Start ....
+End.
+Promise 1
+Promise 2
+Timeout 1 ....
+Timeout  2 ....
+Promise inside Timeout 2
+
+Call Stack: Executes synchronous code.
+
+Microtasks: Includes resolved promises and .then() callbacks.
+
+Macrotasks: Includes setTimeout, setInterval, DOM events
+</p>
+</details>
+
+---
 
 ---
 
